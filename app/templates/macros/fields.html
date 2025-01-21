@@ -1,0 +1,44 @@
+{% macro render_input_field(field, label_class="col-sm-3", input_class="col-sm-9") %}
+  <div class="form-group row">
+    {{ field.label(class_="col-form-label " + label_class) }}
+    <div class="{{ input_class }}">
+      {{ field(class_="form-control") }}
+      {% if field.errors %}
+        <div class="text-danger">
+          {% for error in field.errors %}
+            <p>{{ error }}</p>
+          {% endfor %}
+        </div>
+      {% endif %}
+    </div>
+  </div>
+{% endmacro %}
+
+{% macro render_password_field(field, label_class="col-sm-3", input_class="col-sm-9") %}
+  <div class="form-group row">
+    {{ field.label(class_="col-form-label " + label_class) }}
+    <div class="{{ input_class }}">
+      {{ field(class_="form-control", type="password") }}
+      {% if field.errors %}
+        <div class="text-danger">
+          {% for error in field.errors %}
+            <p>{{ error }}</p>
+          {% endfor %}
+        </div>
+      {% endif %}
+    </div>
+  </div>
+{% endmacro %}
+
+{% macro render_checkbox_field(field, label_class="col-sm-3", input_class="col-sm-9") %}
+  <div class="form-group form-check">
+    {{ field(class_="form-check-input") }}
+    {{ field.label(class_="form-check-label") }}
+  </div>
+{% endmacro %}
+
+{% macro render_submit(text="Submit", btn_class="btn btn-primary") %}
+  <div class="form-group text-center">
+    <button type="submit" class="{{ btn_class }}">{{ text }}</button>
+  </div>
+{% endmacro %}
