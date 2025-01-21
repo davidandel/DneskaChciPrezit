@@ -14,7 +14,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 EXPOSE 5000
 
 # Set environment variable to indicate the app is in production mode
-ENV FLASK_APP=app.py
+ENV FLASK_APP=flask_for_startup.py
 ENV FLASK_RUN_HOST=0.0.0.0
 
 # Run the Flask app in development mode
